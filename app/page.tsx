@@ -1,5 +1,6 @@
 import styles from "./page.module.css";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export default function Home() {
     return (
@@ -20,12 +21,12 @@ export default function Home() {
                         </p>
                     </div>
                     <div className={styles.ctaGroup}>
-                        <button className={styles.ctaPrimary}>
+                        <Link href="/about" className={styles.ctaPrimary}>
                             READ THE MANIFESTO <ArrowRight size={16} />
-                        </button>
-                        <button className={styles.ctaSecondary}>
+                        </Link>
+                        <Link href="/framework" className={styles.ctaSecondary}>
                             SEE THE PROTOCOL
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </section>

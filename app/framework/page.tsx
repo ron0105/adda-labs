@@ -36,7 +36,7 @@ export default function Framework() {
 
     return (
         <div className={styles.wrapper}>
-            <section className={styles.hero}>
+            <section className={styles.hero} style={{ minHeight: 'auto', paddingTop: '100px', paddingBottom: '40px' }}>
                 <div className="container">
                     <div className={styles.statusLabel}>
                         EXECUTION_PROTOCOL
@@ -72,6 +72,19 @@ export default function Framework() {
                         <div className={styles.largeText}>
                             We don&apos;t bet on &quot;maybe.&quot; We architect filters that ensure every venture we scale has survived a gauntlet of skepticism.
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Final CTA */}
+            <section className={styles.finalCta}>
+                <div className="container">
+                    <div className={styles.ctaContent}>
+                        <h2 className={styles.sectionTitle}>Have an Idea Worth Testing?</h2>
+                        <p>Partner with Adda Labs to validate, structure, and pilot your idea with discipline.</p>
+                        <a href="mailto:founder@theaddalabs.com" className={styles.ctaPrimary} style={{ display: 'inline-block', textDecoration: 'none' }}>
+                            Start a Conversation
+                        </a>
                     </div>
                 </div>
             </section>

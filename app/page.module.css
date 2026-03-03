@@ -276,28 +276,45 @@
 }
 
 .principlesGrid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    border: none;
     margin-top: 2rem;
-    /* Reduced from 4rem */
 }
 
 .principleCard {
-    padding: 4rem 3rem;
-    border-right: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
+    padding: 2.5rem;
+    border: 1px solid var(--border);
+    background-color: var(--bg-elevated);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
     display: flex;
     align-items: center;
-    transition: background-color 0.3s ease;
 }
 
-.principleCard:nth-child(2n) {
-    border-right: none;
+.principleCard::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 6px;
+    background-color: var(--accent);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.principleCard:nth-last-child(-n+2) {
-    border-bottom: none;
+.principleCard:hover {
+    transform: translateX(10px);
+    box-shadow: 6px 6px 0px 0px rgba(0, 0, 0, 1);
+}
+
+.principleCard:hover::before {
+    transform: scaleY(1);
+    transform-origin: top;
 }
 
 .principleText {

@@ -3,7 +3,7 @@ import styles from "../page.module.css";
 export default function About() {
     return (
         <div className={styles.wrapper}>
-            <section className={styles.hero}>
+            <section className={styles.hero} style={{ minHeight: 'auto', paddingTop: '100px', paddingBottom: '40px' }}>
                 <div className="container">
                     <div className={styles.statusLabel}>
                         LAB_POSITIONING
@@ -57,6 +57,19 @@ export default function About() {
                 <div className="container" style={{ textAlign: 'center', padding: '120px 0' }}>
                     <span data-mono className="accent-text bracketed">Core_Axiom</span>
                     <h2 className={styles.heroHeadline} style={{ fontSize: 'clamp(2rem, 6vw, 4rem)', marginBottom: '0', marginTop: '2rem' }}>Validation Before Scale.</h2>
+                </div>
+            </section>
+
+            {/* Final CTA */}
+            <section className={styles.finalCta}>
+                <div className="container">
+                    <div className={styles.ctaContent}>
+                        <h2 className={styles.sectionTitle}>Have an Idea Worth Testing?</h2>
+                        <p>Partner with Adda Labs to validate, structure, and pilot your idea with discipline.</p>
+                        <a href="mailto:founder@theaddalabs.com" className={styles.ctaPrimary} style={{ display: 'inline-block', textDecoration: 'none' }}>
+                            Start a Conversation
+                        </a>
+                    </div>
                 </div>
             </section>
         </div>
