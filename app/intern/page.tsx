@@ -12,7 +12,7 @@ export default function Intern() {
                     <h1 className={styles.heroHeadline}>Intern Protocol.</h1>
                     <div className={styles.heroDescription}>
                         <p>
-                            We don't do fetch-coffee internships.<br />
+                            We don&apos;t do fetch-coffee internships.<br />
                             We look for high agency and extreme curiosity.<span className={styles.blinkingCursor}>_</span>
                         </p>
                     </div>
@@ -32,7 +32,7 @@ export default function Intern() {
                             <div style={{ marginBottom: '3rem' }}>
                                 <h3 style={{ fontSize: '2.25rem', fontWeight: '900', textTransform: 'uppercase', marginBottom: '1.5rem', lineHeight: '1.1' }}>Clean & Honest Work</h3>
                                 <p style={{ fontSize: '1.25rem', lineHeight: '1.5', color: 'var(--foreground)' }}>
-                                    This is not a typical internship. You won't be doing routine tasks. You will be thinking, questioning, and building clarity.
+                                    This is not a typical internship. You won&apos;t be doing routine tasks. You will be thinking, questioning, and building clarity.
                                 </p>
                             </div>
                             <div className={styles.cardGrid}>

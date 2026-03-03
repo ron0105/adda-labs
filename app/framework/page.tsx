@@ -70,7 +70,7 @@ export default function Framework() {
                             <h2 className={styles.sectionTitle}>Built for Certainty.</h2>
                         </div>
                         <div className={styles.largeText}>
-                            We don't bet on "maybe." We architect filters that ensure every venture we scale has survived a gauntlet of skepticism.
+                            We don&apos;t bet on &quot;maybe.&quot; We architect filters that ensure every venture we scale has survived a gauntlet of skepticism.
                         </div>
                     </div>
                 </div>

@@ -16,7 +16,7 @@ export default function Home() {
                     <div className={styles.heroDescription}>
                         <p>
                             Adda Labs is a venture experimentation lab.<br />
-                            We don't do decks. We do damage testing.<span className={styles.blinkingCursor}>_</span>
+                            We don&apos;t do decks. We do damage testing.<span className={styles.blinkingCursor}>_</span>
                         </p>
                     </div>
                     <div className={styles.ctaGroup}>
