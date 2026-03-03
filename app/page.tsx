@@ -166,9 +166,9 @@ export default function Home() {
                     <div className={styles.ctaContent}>
                         <h2 className={styles.sectionTitle}>Have an Idea Worth Testing?</h2>
                         <p>Partner with Adda Labs to validate, structure, and pilot your idea with discipline.</p>
-                        <button className={styles.ctaPrimary}>
+                        <a href="mailto:founder@theaddalabs.com" className={styles.ctaPrimary} style={{ display: 'inline-block', textDecoration: 'none' }}>
                             Start a Conversation
-                        </button>
+                        </a>
                     </div>
                 </div>
             </section>
