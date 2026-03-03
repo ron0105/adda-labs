@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE ADDA LABS | NO FLUFF</title>
+    <!-- FORCE NEW FAVICON (Black Square) -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='black'/></svg>">
+    <!-- 1. Load Tailwind CSS (Design Engine) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- 2. Load React & ReactDOM (Logic Engine) -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    
+    <!-- 3. Load Babel (To understand JSX code in browser) -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- 4. Configure Fonts & Colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        accent: '#0044FF',
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-[#F2F2F2]">
+    <div id="root"></div>
+
+    <!-- 5. The Application Code -->
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        // --- ICONS (Inlined for simplicity) ---
+        const Icon = ({ path }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+                <path d={path} />
+            </svg>
+        );
+        const Icons = {
+            ArrowRight: () => <Icon path="M5 12h14M12 5l7 7-7 7" />,
+            Terminal: () => <Icon path="M4 17l6-6-6-6M12 19h8" />,
+            X: () => <Icon path="M18 6L6 18M6 6l12 12" />,
+            Check: () => <Icon path="M20 6L9 17l-5-5" />,
+            Target: () => <Icon path="M22 12h-4M6 12H2M12 6V2M12 22v-4M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0-6 0M12 12m-10 0a10 10 0 1 0 20 0a10 10 0 1 0-20 0" />,
+            Mail: () => <Icon path="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zM22 6l-10 7L2 6" />
+        };
+
+        // --- MAIN COMPONENT ---
+        const App = () => {
+            const [cursorVisible, setCursorVisible] = useState(true);
+
+            useEffect(() => {
+                const interval = setInterval(() => setCursorVisible(v => !v), 500);
+                return () => clearInterval(interval);
+            }, []);
+
+            const scrollTo = (id) => {
+                const element = document.getElementById(id);
+                if (element) element.scrollIntoView({ behavior: 'smooth' });
+            };
+
+            return (
+                <div className="min-h-screen text-[#050505] font-sans selection:bg-[#0044FF] selection:text-white">
+                    {/* NAV */}
+                    <nav className="fixed top-0 w-full z-50 border-b-2 border-black bg-[#F2F2F2]/90 backdrop-blur-sm">
+                        <div className="max-w-7xl mx-auto px-4 h-14 flex items-center justify-between">
+                            <div className="flex items-center gap-2 font-mono text-sm font-bold tracking-tighter">
+                                <div className="w-3 h-3 bg-accent animate-pulse"></div>
+                                ADDA_LABS.OS
+                            </div>
+                            <div className="hidden md:flex gap-6 font-mono text-xs uppercase tracking-widest">
+                                <button onClick={() => scrollTo('manifesto')} className="hover:text-accent">[ Manifesto ]</button>
+                                <button onClick={() => scrollTo('protocol')} className="hover:text-accent">[ Protocol ]</button>
+                                <button onClick={() => scrollTo('intern')} className="hover:text-accent">[ Intern ]</button>
+                            </div>
+                            <a href="mailto:founder@theaddalabs.com" className="bg-black text-white px-4 py-1 font-mono text-xs hover:bg-accent transition-colors">CONTACT</a>
+                        </div>
+                    </nav>
+
+                    {/* HERO */}
+                    <section id="hero" className="pt-32 pb-20 px-4 md:px-8 max-w-7xl mx-auto min-h-screen flex flex-col justify-center md:border-x-2 md:border-black border-dashed border-gray-300">
+                        <div className="space-y-6">
+                            <div className="inline-block bg-black text-white px-2 py-1 font-mono text-xs mb-4">SYSTEM_STATUS: VALIDATING REALITY</div>
+                            <h1 className="text-5xl md:text-8xl font-black tracking-tighter leading-[0.9]">
+                                IDEAS ARE CHEAP.<br />VALIDATION IS HARD.
+                            </h1>
+                            <div className="font-mono text-lg md:text-xl md:max-w-2xl border-l-4 border-accent pl-6 py-2 text-gray-800">
+                                <p>Adda Labs is a venture experimentation lab.<br />We don't do decks. We do damage testing.<span className={`text-accent font-bold ${cursorVisible ? 'opacity-100' : 'opacity-0'}`}>_</span></p>
+                            </div>
+                            <div className="pt-10 flex flex-col md:flex-row gap-4">
+                                <button onClick={() => scrollTo('manifesto')} className="flex items-center gap-2 px-8 py-4 bg-black text-white font-mono text-sm uppercase tracking-widest hover:bg-accent transition-all border-2 border-black">
+                                    Read The Manifesto <Icons.ArrowRight />
+                                </button>
+                                <button onClick={() => scrollTo('protocol')} className="px-8 py-4 bg-transparent text-black font-mono text-sm uppercase tracking-widest border-2 border-black hover:bg-black hover:text-white transition-all">
+                                    See The Protocol
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* MANIFESTO */}
+                    <section id="manifesto" className="border-t-2 border-black">
+                        <div className="grid grid-cols-1 md:grid-cols-12 min-h-screen">
+                            <div className="md:col-span-4 bg-white border-b-2 md:border-b-0 md:border-r-2 border-black p-8 md:p-12 md:sticky md:top-14 h-fit">
+                                <h2 className="text-4xl font-bold mb-4">THE FOUNDER MANIFESTO</h2>
+                                <p className="font-mono text-xs text-gray-500 mb-8">ORIGIN: MBA STUDENT<br/>MISSION: BRIDGE THINKING & REALITY</p>
+                                <div className="space-y-4 font-mono text-sm">
+                                    <div className="flex items-center gap-2 text-gray-400 line-through"><Icons.X /> Concepts that win marks</div>
+                                    <div className="flex items-center gap-2 text-gray-400 line-through"><Icons.X /> Ideas that sound good</div>
+                                    <div className="flex items-center gap-2 font-bold text-black"><span className="text-accent"><Icons.Check /></span> Ideas that survive contact</div>
+                                </div>
+                            </div>
+                            <div className="md:col-span-8 p-8 md:p-20 space-y-24">
+                                <div className="group">
+                                    <div className="font-mono text-accent text-xs mb-2">01. BELIEF</div>
+                                    <h3 className="text-3xl font-bold mb-4">Revenue is not evil.<br/>It is <span className="bg-accent text-white px-2">OXYGEN.</span></h3>
+                                    <p className="text-lg text-gray-700 max-w-lg">Some experiments must generate cash so that deeper, longer-term problems can be explored.</p>
+                                </div>
+                                <div className="group">
+                                    <div className="font-mono text-accent text-xs mb-2">02. METHOD</div>
+                                    <h3 className="text-3xl font-bold mb-4">Small, frugal experiments beat big assumptions.</h3>
+                                    <p className="text-lg text-gray-700 max-w-lg">If an idea can’t be tested cheaply and quickly, it’s probably not understood well enough.</p>
+                                </div>
+                                <div className="group">
+                                    <div className="font-mono text-accent text-xs mb-2">03. IDENTITY</div>
+                                    <h3 className="text-3xl font-bold mb-4">Failure is allowed.<br/>Laziness is not.</h3>
+                                    <p className="text-lg text-gray-700 max-w-lg">Output matters. Even failed experiments must produce insight, documentation, and clarity.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* PROTOCOL */}
+                    <section id="protocol" className="border-t-2 border-black bg-black text-white">
+                        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2">
+                            <div className="p-12 border-b-2 md:border-b-0 md:border-r-2 border-white/20">
+                                <h3 className="font-mono text-accent mb-8 text-sm tracking-widest">ADDA LABS IS:</h3>
+                                <ul className="space-y-6 text-xl md:text-2xl font-light">
+                                    <li className="flex gap-4"><span className="text-accent"><Icons.Target /></span> A venture experimentation lab.</li>
+                                    <li className="flex gap-4"><span className="text-accent"><Icons.Target /></span> A place where ideas are pressure-tested.</li>
+                                    <li className="flex gap-4"><span className="text-accent"><Icons.Target /></span> A structured environment for thinking.</li>
+                                </ul>
+                            </div>
+                            <div className="p-12 bg-[#111]">
+                                <h3 className="font-mono text-gray-500 mb-8 text-sm tracking-widest">ADDA LABS IS NOT:</h3>
+                                <ul className="space-y-6 text-xl md:text-2xl font-light text-gray-400">
+                                    <li className="flex gap-4 line-through decoration-red-500/50"><span className="text-red-500"><Icons.X /></span> An agency.</li>
+                                    <li className="flex gap-4 line-through decoration-red-500/50"><span className="text-red-500"><Icons.X /></span> A startup accelerator.</li>
+                                    <li className="flex gap-4 line-through decoration-red-500/50"><span className="text-red-500"><Icons.X /></span> A guarantee of success.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* INTERN */}
+                    <section id="intern" className="border-t-2 border-black bg-[#F2F2F2] py-20 px-4">
+                        <div className="max-w-4xl mx-auto">
+                            <div className="bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                                <div className="bg-black text-white p-4 flex justify-between items-center">
+                                    <h2 className="font-mono text-lg uppercase tracking-widest flex items-center gap-2"><Icons.Terminal /> Intern Protocol</h2>
+                                    <div className="px-2 py-0.5 bg-accent text-xs font-bold rounded-sm">HIGH INTENSITY</div>
+                                </div>
+                                <div className="p-8 md:p-12">
+                                    <div className="mb-12">
+                                        <h3 className="text-4xl font-black mb-6 uppercase">Clean & Honest Work</h3>
+                                        <p className="text-lg mb-4">This is not a typical internship. You won’t be doing routine tasks. You will be thinking, questioning, and building clarity.</p>
+                                    </div>
+                                    <div className="grid md:grid-cols-2 gap-12">
+                                        <div>
+                                            <h4 className="font-bold border-b-2 border-black pb-2 mb-4 flex items-center gap-2"><Icons.X /> DO NOT APPLY IF:</h4>
+                                            <ul className="space-y-3 text-sm font-mono text-gray-600">
+                                                <li>- You want step-by-step instructions.</li>
+                                                <li>- You want repetitive admin work.</li>
+                                                <li>- You are looking for a passive role.</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h4 className="font-bold border-b-2 border-black pb-2 mb-4 flex items-center gap-2"><span className="text-accent"><Icons.Check /></span> YOU WILL THRIVE IF:</h4>
+                                            <ul className="space-y-3 text-sm font-mono text-gray-600">
+                                                <li>+ You enjoy debating ideas.</li>
+                                                <li>+ You are willing to challenge the founder.</li>
+                                                <li>+ You value clarity over comfort.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div className="mt-12 pt-8 border-t-2 border-gray-100 text-center">
+                                        <a href="mailto:founder@theaddalabs.com?subject=Challenge" className="inline-block bg-accent hover:bg-[#0033CC] text-white font-bold py-4 px-10 text-lg uppercase tracking-wider transition-transform hover:-translate-y-1">Challenge The Founder</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* FOOTER */}
+                    <footer className="bg-black text-white border-t border-gray-800">
+                        <div className="max-w-7xl mx-auto px-8 py-16 grid md:grid-cols-2 gap-12">
+                            <div>
+                                <div className="font-mono text-accent text-xs mb-4">LONG TERM AIM</div>
+                                <h2 className="text-2xl font-bold mb-8">Solve real problems.<br/>Make money honestly.<br/>Learn relentlessly.</h2>
+                                <div className="font-mono text-xs text-gray-500">© 2026 THE ADDA LABS. NO FLUFF.</div>
+                            </div>
+                            <div className="flex flex-col items-start md:items-end justify-between">
+                                <a href="mailto:founder@theaddalabs.com" className="flex items-center gap-2 hover:text-accent transition-colors"><Icons.Mail /> founder@theaddalabs.com</a>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>
