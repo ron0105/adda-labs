@@ -16,6 +16,9 @@ export default function Footer() {
                 <div className={styles.bottom}>
                     <p className={styles.copyright}>&copy; {new Date().getFullYear()} The Adda Labs. All rights reserved.</p>
                     <div className={styles.meta}>
+                        <a href="https://tal-vi.vercel.app" target="_blank" rel="noopener noreferrer" className={styles.viLink}>
+                            Venture Infrastructure ↗
+                        </a>
                         <span data-mono>Validation before scale.</span>
                     </div>
                 </div>

@@ -40,6 +40,21 @@
 
 .meta {
     font-size: 0.7rem;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.viLink {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--secondary);
+    transition: color 0.2s ease;
+    text-decoration: none;
+}
+
+.viLink:hover {
+    color: var(--foreground);
 }
 
 @media (max-width: 768px) {

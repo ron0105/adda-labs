@@ -20,6 +20,9 @@ export default function Navigation() {
                     <Link href="/intern" className={styles.link}>
                         [ Intern ]
                     </Link>
+                    <a href="https://tal-vi.vercel.app" target="_blank" rel="noopener noreferrer" className={styles.link}>
+                        [ Venture Infrastructure ↗ ]
+                    </a>
                 </div>
                 <a href="mailto:founder@theaddalabs.com" className={styles.contactBtn}>
                     CONTACT
